@@ -22,13 +22,23 @@ make
 check_output=`make checks`
 echo "$check_output"
 
-if [[ "$check_output" != *"PASSED ALL TESTS"* ]]; then
-  exit
+programs="addedgeg amtog biplabg catg complg converseg copyg cubhamg deledgeg delptg directg dreadnaut dretodot dretog \
+  genbg genbgL geng genquarticg genrang genspecialg gentourng gentreeg hamheuristic labelg linegraphg listg multig newedgeg \
+  planarg ranlabg shortg showg subdivideg twohamg vcolg watercluster2 NRswitchg"
+
+if [[ `uname` == MINGW* ]]; then
+    # countg and pickg are not supported on platforms with size(void*) != size(long)
+    if [[ "$check_output" != *"3 TESTS FAILED"* ]]; then
+      exit
+    fi
+else
+    if [[ "$check_output" != *"PASSED ALL TESTS"* ]]; then
+      exit
+    fi
+    programs="$programs countg pickg"
 fi
 
-for program in addedgeg amtog biplabg catg complg converseg copyg countg cubhamg deledgeg delptg directg dreadnaut dretodot dretog \
-  genbg genbgL geng genquarticg genrang genspecialg gentourng gentreeg hamheuristic labelg linegraphg listg multig newedgeg \
-  pickg planarg ranlabg shortg showg subdivideg twohamg vcolg watercluster2 NRswitchg;
+for program in $programs;
 do
   cp -p $program "$LIBRARY_PREFIX"/bin/$program
 done
