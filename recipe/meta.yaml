@@ -1,5 +1,6 @@
-{% set version = "2.6r7" %}
-{% set tarversion = version.replace('.','') %}
+{% set version = "2.6.7" %}
+{% set version_list = version.split('.') %}
+{% set tarversion = version_list[0]+version_list[1]+'r'+version_list[2] %}
 {% set name = "nauty" %}
 
 package:
