@@ -726,8 +726,10 @@ static int weighted_clique_search_all(int *table, int start,
 				      int min_weight, int max_weight,
 				      boolean maximal, graph_t *g,
 				      clique_options *opts) {
+#if 0
 	struct timeval timeval;
 	struct tms tms;
+#endif
 	int i,j;
 	int v;
 	int *newtable;
