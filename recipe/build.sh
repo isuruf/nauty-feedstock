@@ -26,16 +26,8 @@ programs="addedgeg amtog biplabg catg complg converseg copyg cubhamg deledgeg de
   genbg genbgL geng genquarticg genrang genspecialg gentourng gentreeg hamheuristic labelg linegraphg listg multig newedgeg \
   planarg ranlabg shortg showg subdivideg twohamg vcolg watercluster2 NRswitchg"
 
-if [[ `uname` == MINGW* ]]; then
-    # countg and pickg are not supported on platforms with size(void*) != size(long)
-    if [[ "$check_output" != *"3 TESTS FAILED"* ]]; then
-      exit 1
-    fi
-else
-    if [[ "$check_output" != *"PASSED ALL TESTS"* ]]; then
-      exit 1
-    fi
-    programs="$programs countg pickg"
+if [[ "$check_output" != *"PASSED ALL TESTS"* ]]; then
+  exit 1
 fi
 
 for program in $programs;
