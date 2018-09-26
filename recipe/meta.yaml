@@ -9,11 +9,8 @@ package:
 
 source:
   fn: {{ name }}-{{ tarversion }}.tar.gz
-  url: http://users.cecs.anu.edu.au/~bdm/nauty/nauty27b11.tar.gz
-  sha256: 5d52211cec767d8d8e43483d96202be235f85696d1373c307291273463c812fa
-  patches:
-    - minmax.patch
-    - ar.patch
+  url: http://users.cecs.anu.edu.au/~bdm/nauty/nauty27rc1.tar.gz
+  sha256: 43a68572b8d32c1def1c263dfd959ea928f2d2c6c5f20aa970269e9e31dc9a45
 
 build:
   number: 1000
