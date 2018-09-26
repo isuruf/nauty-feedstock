@@ -17,6 +17,7 @@ else
 fi
 
 ./configure  --disable-popcnt --disable-clz
+cp $RECIPE_DIR/nautycliquer.c .
 make
 
 check_output=`make checks`
