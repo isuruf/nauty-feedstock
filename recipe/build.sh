@@ -13,6 +13,7 @@ if [[ `uname` == MINGW* ]]; then
     export LDFLAGS="$LDFLAGS -L$PREFIX/Library/lib"
     export LIBRARY_PREFIX=$PREFIX/Library
 else
+    export CFLAGS="$CFLAGS -fPIC"
     export LIBRARY_PREFIX=$PREFIX
 fi
 
