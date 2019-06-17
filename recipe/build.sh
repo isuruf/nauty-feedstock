@@ -43,3 +43,11 @@ do
   cp -p $program "$LIBRARY_PREFIX"/bin/$program
 done
 
+libs="nauty nauty1 nautyL nautyL1 nautyW nautyW1"
+for lib in $libs;
+do
+  cp -p $lib.a "$LIBRARY_PREFIX"/lib/lib$lib.a
+done
+
+mkdir -p "$LIBRARY_PREFIX"/include/
+cp nauty.h "$LIBRARY_PREFIX"/include/nauty.h
