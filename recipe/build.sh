@@ -39,11 +39,13 @@ else
     programs="$programs countg pickg"
 fi
 
+mkdir -p "$LIBRARY_PREFIX"/bin
 for program in $programs;
 do
   cp -p $program "$LIBRARY_PREFIX"/bin/$program
 done
 
+mkdir -p "$LIBRARY_PREFIX"/lib
 libs="nauty nauty1 nautyL nautyL1 nautyW nautyW1"
 for lib in $libs;
 do
