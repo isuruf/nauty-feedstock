@@ -22,6 +22,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - clangdev              # [win]
+    - llvmdev               # [win]
     - lld                   # [win]
     - m2-make               # [win]
     - m2-automake-wrapper   # [win]
