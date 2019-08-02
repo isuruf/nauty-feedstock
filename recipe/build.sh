@@ -17,8 +17,8 @@ if [[ "$target_platform" == "win-64" ]]; then
     curl -L -O http://users.cecs.anu.edu.au/~bdm/nauty/nauty${TARVERSION}.tar.gz
     tar -xvf nauty${TARVERSION}.tar.gz
     cd nauty${TARVERSION}
-    patch -p < $RECIPE_DIR/ar.patch
-    patch -p < $RECIPE_DIR/minmax.patch
+    patch -p0 < $RECIPE_DIR/ar.patch
+    patch -p0 < $RECIPE_DIR/minmax.patch
 else
     export CFLAGS="$CFLAGS -fPIC"
     export LIBRARY_PREFIX=$PREFIX
