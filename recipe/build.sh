@@ -57,9 +57,9 @@ libs="nauty nauty1 nautyL nautyL1 nautyW nautyW1"
 for lib in $libs;
 do
   if [[ "$target_platform" == "win-64" ]]; then
-    cp -p $lib.a "$LIBRARY_PREFIX"/lib/lib$lib.a
-  else
     cp -p $lib.a "$LIBRARY_PREFIX"/lib/$lib.lib
+  else
+    cp -p $lib.a "$LIBRARY_PREFIX"/lib/lib$lib.a
   fi
 done
 
