@@ -19,6 +19,7 @@ if [[ "$target_platform" == "win-64" ]]; then
     cd nauty${TARVERSION}
     patch -p0 < $RECIPE_DIR/ar.patch
     patch -p0 < $RECIPE_DIR/minmax.patch
+    cp COPYRIGHT ../COPYRIGHT
 else
     export CFLAGS="$CFLAGS -fPIC"
     export LIBRARY_PREFIX=$PREFIX
@@ -32,7 +33,7 @@ echo "$check_output"
 
 programs="addedgeg amtog biplabg catg complg converseg copyg cubhamg deledgeg delptg directg dreadnaut dretodot dretog \
   genbg genbgL geng genquarticg genrang genspecialg gentourng gentreeg hamheuristic labelg linegraphg listg multig newedgeg \
-  planarg ranlabg shortg showg subdivideg twohamg vcolg watercluster2 NRswitchg"
+  planarg ranlabg showg subdivideg twohamg vcolg watercluster2 NRswitchg"
 
 if [[ "$target_platform" == "win-64" ]]; then
     # countg and pickg are not supported on platforms with size(void*) != size(long)
@@ -43,7 +44,7 @@ else
     if [[ "$check_output" != *"PASSED ALL TESTS"* ]]; then
       exit 1
     fi
-    programs="$programs countg pickg"
+    programs="$programs countg pickg shortg"
 fi
 
 mkdir -p "$LIBRARY_PREFIX"/bin
